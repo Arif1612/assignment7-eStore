@@ -39,7 +39,8 @@ const addToCart = (id, price) => {
 
 const getInputValue = (id) => {
   const element = document.getElementById(id).innerText;
-  const converted = parseInt(element);
+  // changed to parse floag
+  const converted = parseFloat(element);
   return converted;
 };
 
@@ -55,7 +56,7 @@ const updatePrice = (id, value) => {
 
 // set innerText function
 const setInnerText = (id, value) => {
-  document.getElementById(id).innerText = Math.round(value);
+  document.getElementById(id).innerText = value;
 };
 
 // update delivery charge and total Tax
@@ -73,6 +74,8 @@ const updateTaxAndCharge = () => {
     setInnerText("delivery-charge", 60);
     setInnerText("total-tax", priceConverted * 0.4);
   }
+  // function call was missing for total update
+  updateTotal()
 };
 
 //grandTotal update function
